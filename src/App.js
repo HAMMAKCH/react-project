@@ -4,11 +4,13 @@ import Amazon from "./components/Amazon";
 import Cart from "./components/Cart";
 import "./styles/amazon.css";
 import "./App.css";
+import list from './data';
 
 const App = () => {
-  const [show, setShow] = useState(true);
+  const [showCart, setShowCart] = useState(true);
   const [cart, setCart] = useState([]);
   const [warning, setWarning] = useState(false);
+  const[books,setBooks]=useState(list)
 
   const handleClick = (item) => {
     let isPresent = false;
@@ -36,13 +38,15 @@ const App = () => {
     if (tempArr[ind].amount === 0) tempArr[ind].amount = 1;
     setCart([...tempArr]);
   };
-
+  const AjouterNewBook = (newBook) => {
+    setBooks(books.concat(newBook))
+  }
   return (
     <div className="App-header">
       <React.Fragment>
-        <Navbar size={cart.length} setShow={setShow} />
-        {show ? (
-          <Amazon handleClick={handleClick} />
+        <Navbar size={cart.length} setShowCart={setShowCart} AjouterNewBook={AjouterNewBook}/>
+        {showCart ? (
+          <Amazon books={books} handleClick={handleClick} />
         ) : (
           <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
         )}

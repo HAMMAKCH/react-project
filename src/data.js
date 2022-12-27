@@ -169,7 +169,7 @@ const list = [
       img: "https://m.media-amazon.com/images/I/4127Rn7gjxL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
       amount: 1,
     },
-  
+
   ];
 
 

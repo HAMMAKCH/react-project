@@ -1,13 +1,13 @@
 import React from 'react';
-import list from '../data';
+//  list from '../data';
 import '../styles/amazon.css';
 import Cards from './Cards';
 
-const Amazon = ({handleClick}) => {
+const Amazon = ({books,handleClick}) => {
   return (
     <section>
         {
-            list.map((item)=>(
+            books.map((item)=>(
                 <Cards item={item} key={item.id} handleClick={handleClick} />
             ))
         }
